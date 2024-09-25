@@ -2,11 +2,11 @@ import { useContext } from "react"
 import { CarritoContext } from "../context/CarritoContext"
 
 export const CarritoPage = () => {
-    const { listaCompras, agregarCompra, aumentarCantidad, disminuirCantidad, eliminarCompra } = useContext(CarritoContext)
+    const { listaCompras, aumentarCantidad, disminuirCantidad, eliminarCompra } = useContext(CarritoContext)
 
-    const calcularTotal = () =>{
-        return listaCompras.reduce((total, item) => total + item.price * item.cantidad, 0 ).toFixed(2)
-    }   
+    const calcularTotal = () => {
+        return listaCompras.reduce((total, item) => total + item.price * item.cantidad, 0).toFixed(2)
+    }
     const handleImpresion = () => {
         print()
     }
@@ -29,11 +29,11 @@ export const CarritoPage = () => {
                                 <td>{item.price}</td>
                                 <td>
                                     <button className="btn btn-outline-primary"
-                                    onClick={() => disminuirCantidad(item.id)}>-</button>
+                                        onClick={() => disminuirCantidad(item.id)}>-</button>
                                     <button className="btn btn-primary">{item.cantidad}</button>
                                     <button className="btn btn-outline-primary"
-                                    onClick={() => aumentarCantidad(item.id)}>+</button>
-                                    
+                                        onClick={() => aumentarCantidad(item.id)}>+</button>
+
                                 </td>
                                 <td><button
                                     type="button"
@@ -52,11 +52,11 @@ export const CarritoPage = () => {
                 </tbody>
             </table>
             <div className="d-grid gap-2">
-                <button 
-                type="submit" 
-                className="btn btn-primary"
-                onClick={handleImpresion}
-                disabled={listaCompras<1}>Comprar</button>
+                <button
+                    type="submit"
+                    className="btn btn-primary"
+                    onClick={handleImpresion}
+                    disabled={listaCompras < 1}>Comprar</button>
             </div>
         </>
     )

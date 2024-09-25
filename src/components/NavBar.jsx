@@ -1,5 +1,7 @@
-import {Badge} from "@mui/icons-material"
-import {ShoppingCart} from "@mui/icons-material"
+import Badge from '@mui/material/Badge';
+
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { NavLink } from "react-router-dom"
 import { CarritoContext } from "../context/CarritoContext"
 import { useContext } from "react"
@@ -22,9 +24,12 @@ export const NavBar = () => {
                         </li>
                     </ul>
                     <NavLink to='/carrito'>
-                        <Badge badgeContent={listaCompras.length} color="secondary">
-                            <ShoppingCart color="action" />
-                        </Badge>
+                        <IconButton aria-label="cart">
+                            <Badge badgeContent={listaCompras.length} color="secondary">
+                                <ShoppingCartIcon />
+                            </Badge>
+                        </IconButton>
+
                     </NavLink>
 
                 </div>
